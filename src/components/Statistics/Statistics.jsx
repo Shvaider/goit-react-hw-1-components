@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import styles from './statistics.module.css';
+import styles from './statistic.module.css';
 
 export default function Statistics({ title, stats }) {
   return (
     <section className={styles.statistics}>
-      <h2 className={styles.title}>Upload stats</h2>
+      <h2 className={styles.title}>{title}</h2>
 
       <ul className={styles.stat_list}>
         {stats.map(stat => (
@@ -19,12 +19,12 @@ export default function Statistics({ title, stats }) {
 }
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
     })
-  ),
+  ).isRequired,
 };
